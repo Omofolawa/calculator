@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+    <div class="theme-selector">
+        <label for="theme">Select Theme: </label>
+        <select id="theme">
+            <option value="dark-theme">Dark</option>
+            <option value="light-theme">Light</option>
+            <option value="colorful-theme">Colorful</option>
+            <option value="red-theme">Red</option>
+            <option value="green-theme">Green</option>
+            <option value="blue-theme">Blue</option>
+            <option value="purple-theme">Purple</option>
+        </select>
+    </div>
+    <div class="calculator">
+        <input type="text" class="input" id="inputField" readonly>
+        <div class="result" id="result">Result: 0</div>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>+</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>-</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>*</button>
+        <button>0</button>
+        <button>%</button>
+        <button>/</button>
+        <button>(</button>
+        <button>)</button>
+        <button>.</button>
+        <button>=</button>
+        <button id="resetButton">C</button><br>
+    </div>
+<br>
+    <footer>
+        <p>© Arithmetic Curiosity.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
