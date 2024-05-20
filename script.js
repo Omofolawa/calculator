@@ -4,6 +4,8 @@ const inputField = document.getElementById('inputField');
 const themeSelector = document.getElementById('theme');
 let currentInput = '';
 let result = 0;
+let lastOperation = '';
+let lastOperand = '';
 
 function handleImplicitMultiplication(input) {
     return input.replace(/(\d)(\()/g, '$1*(').replace(/(\))(\d)/g, ')*$2');
@@ -19,10 +21,20 @@ buttons.forEach(button => {
         } else if (value === '+' || value === '-' || value === '*' || value === '%' || value === '/') {
             currentInput += ` ${value} `;
             inputField.value = currentInput;
+            lastOperation = '';
         } else if (value === '=') {
             try {
-                const processedInput = handleImplicitMultiplication(currentInput.replace('%', '/100*'));
-                result = eval(processedInput);
+                if (!lastOperation) {
+                    const processedInput = handleImplicitMultiplication(currentInput.replace('%', '/100*'));
+                    result = eval(processedInput);
+                    const match = processedInput.match(/([+\-*/])\s*(-?\d+(\.\d+)?)(?=\s*[^+\-*/]*$)/);
+                    if (match) {
+                        lastOperation = match[1];
+                        lastOperand = match[2];
+                    }
+                } else {
+                    result = eval(`${result} ${lastOperation} ${lastOperand}`);
+                }
                 resultParagraph.textContent = `Result: ${result}`;
                 currentInput = result.toString();
                 inputField.value = currentInput;
@@ -33,8 +45,13 @@ buttons.forEach(button => {
         } else if (button.id === 'resetButton') {
             currentInput = '';
             result = 0;
+            lastOperation = '';
+            lastOperand = '';
             inputField.value = '';
             resultParagraph.textContent = 'Result: 0';
+        } else if (button.id === 'backspaceButton') {
+            currentInput = currentInput.slice(0, -1);
+            inputField.value = currentInput;
         }
     });
 });
@@ -42,5 +59,11 @@ buttons.forEach(button => {
 // Add an event listener to the theme selector dropdown
 themeSelector.addEventListener('change', (event) => {
     document.body.className = event.target.value; // Change the body class based on the selected theme
-}
-);
+});
+
+// Apply the saved theme on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('theme') || 'dark-theme';
+    document.body.className = savedTheme;
+    themeSelector.value = savedTheme;
+});
