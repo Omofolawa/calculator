@@ -8,7 +8,7 @@
 </head>
 <body class="dark-theme">
     <div class="theme-selector">
-        <label for="theme">Select Theme: </label>
+        <label for="theme">Switch Theme: </label>
         <select id="theme">
             <option value="dark-theme">Dark</option>
             <option value="light-theme">Light</option>
@@ -17,11 +17,19 @@
             <option value="green-theme">Green</option>
             <option value="blue-theme">Blue</option>
             <option value="purple-theme">Purple</option>
+            <option value="dark-blue-theme">Dark Blue</option>
+            <option value="dark-green-theme">Dark Green</option>
+            <option value="dark-red-theme">Dark Red</option>
+            <option value="dark-purple-theme">Dark Purple</option>
         </select>
     </div>
     <div class="calculator">
         <input type="text" class="input" id="inputField" readonly>
         <div class="result" id="result">Result: 0</div>
+        <button id="backspaceButton">⌫</button>
+        <button id="resetButton">C</button>
+        <button>(</button>
+        <button>)</button>
         <button>1</button>
         <button>2</button>
         <button>3</button>
@@ -36,12 +44,9 @@
         <button>*</button>
         <button>0</button>
         <button>%</button>
-        <button>/</button>
-        <button>(</button>
-        <button>)</button>
         <button>.</button>
+        <button>/</button>
         <button>=</button>
-        <button id="resetButton">C</button><br>
     </div>
 <br>
     <footer>
