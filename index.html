@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+    <div class="theme-selector">
+        <label for="theme">Switch Theme: </label>
+        <select id="theme">
+            <option value="dark-theme">Dark</option>
+            <option value="light-theme">Light</option>
+            <option value="colorful-theme">Colorful</option>
+            <option value="red-theme">Red</option>
+            <option value="green-theme">Green</option>
+            <option value="blue-theme">Blue</option>
+            <option value="purple-theme">Purple</option>
+            <option value="dark-blue-theme">Dark Blue</option>
+            <option value="dark-green-theme">Dark Green</option>
+            <option value="dark-red-theme">Dark Red</option>
+            <option value="dark-purple-theme">Dark Purple</option>
+        </select>
+    </div>
+    <div class="calculator">
+        <input type="text" class="input" id="inputField" readonly>
+        <div class="result" id="result">Result: 0</div>
+        <button id="backspaceButton">⌫</button>
+        <button id="resetButton">C</button>
+        <button>(</button>
+        <button>)</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>+</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>-</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>*</button>
+        <button>0</button>
+        <button>%</button>
+        <button>.</button>
+        <button>/</button>
+        <button class="equals" id="equalsButton">=</button>
+	<button>%%</button>
+    </div>
+
+    <footer>
+        <p>© Arithmetic Diabolic Curiosity.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
